@@ -1,0 +1,1 @@
+Todas las bibliotecas que se agregen a este proyecto deben compilarse con Java 8.
