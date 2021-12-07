@@ -203,7 +203,7 @@ public class TalonDataSource implements JRDataSource{
                         importeLetra = "";
                         /*fin importeLetra*/
 
-                        /*inicio cadenaoriginal*/
+                        /*inicio cadenaoriginal TARDA POR CONECTARSE AL SAT*/
                         cadenaOriginal = objTalService.getCadenaOriginal(xml, objDocument);
                         /*fin cadenaoriginal*/
 
@@ -608,7 +608,9 @@ public class TalonDataSource implements JRDataSource{
                     /*Inicio Identificar cuando las mercancias son internacionales*/
                     ArrayList<String> pedimentoCartaPorte = talonCustomDao.getPedimentoCartaPorte(cla_talon); 
                     esInternacional = pedimentoCartaPorte.get(0);
-                    descPedimento = pedimentoCartaPorte.get(1);
+                    descPedimento = "";
+                    if(pedimentoCartaPorte.get(1).equals("0")) descPedimento = "ENTRADA DE MERCANCÍA";  
+                    if(pedimentoCartaPorte.get(1).equals("1")) descPedimento = "SALIDA DE MERCANCÍA"; 
                     numPedimento = pedimentoCartaPorte.get(2);
                     /*FIN Identificar cuando las mercancias son internacionales*/
                     
